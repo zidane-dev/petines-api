@@ -1,6 +1,6 @@
-package com.example.demo.repositories;
+package com.ensak.petines.repositories;
 
-import com.example.demo.model.Tag;
+import com.ensak.petines.model.Tag;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
