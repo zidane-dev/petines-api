@@ -1,4 +1,4 @@
-package com.example.demo.model;
+package com.ensak.petines.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

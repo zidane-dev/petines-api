@@ -1,6 +1,6 @@
-package com.example.demo.repositories;
+package com.ensak.petines.repositories;
 
-import com.example.demo.model.Pet;
+import com.ensak.petines.model.Pet;
 import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.util.List;

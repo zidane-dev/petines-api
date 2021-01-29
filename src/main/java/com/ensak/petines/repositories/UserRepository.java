@@ -1,7 +1,7 @@
-package com.example.demo.repositories;
+package com.ensak.petines.repositories;
 
 
-import com.example.demo.model.User;
+import com.ensak.petines.model.User;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
