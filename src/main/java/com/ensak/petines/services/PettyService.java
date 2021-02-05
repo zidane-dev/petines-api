@@ -15,8 +15,6 @@ public class PettyService {
 
     @Autowired
     OrderItemRepository orderItemRepository;
-
-
  */
     @Autowired
     PettyRepository pettyRepository;
@@ -36,8 +34,6 @@ public class PettyService {
         mPetty.setBirth(petty.getBirth());
         mPetty.setPicture(petty.getPicture());
         mPetty.setLove(petty.getLove());
-        mPetty.setValue(petty.getValue());
-        mPetty.setMessage(petty.getMessage());
 
         pettyRepository.save(mPetty);
     }

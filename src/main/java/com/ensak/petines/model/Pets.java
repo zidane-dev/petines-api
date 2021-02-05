@@ -11,7 +11,7 @@ public class Pets {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="pet_id")
+    @Column(name="id")
     private Integer id;
     @Column(name="name")
     private String name;
@@ -27,10 +27,6 @@ public class Pets {
     private String picture;
     @Column(name="love")
     private Boolean love;
-    @Column(name="value")
-    private String value;
-    @Column(name="message")
-    private String message;
 
     //    @ManyToMany(mappedBy = "pets")
 //    private Set<Favourite> favourites;
@@ -97,22 +93,6 @@ public class Pets {
 
     public void setLove(Boolean love) {
         this.love = love;
-    }
-
-    public String getValue() {
-        return value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
     }
 }
 
