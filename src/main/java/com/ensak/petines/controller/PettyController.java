@@ -5,7 +5,6 @@ import com.ensak.petines.repositories.PettyRepository;
 import com.ensak.petines.services.PettyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -16,7 +15,7 @@ public class PettyController {
     @Autowired
     PettyService pettyService;
 
-    @RequestMapping("/petties")
+    @RequestMapping(method= RequestMethod.GET, value="/petties")
     public List<Pets> getAllPets()    {
         return pettyRepository.findAll();
     }
@@ -29,7 +28,6 @@ public class PettyController {
 
     @PostMapping("/petties/{Id}")
     public void updatePetty(@PathVariable int Id, @RequestBody Pets petty ) {
-
         pettyService.updatePetty(Id, petty);
     }
 
