@@ -10,7 +10,7 @@ public class Commande {
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Column(name="id")
         private Integer id;
-/*
+
     @ManyToOne
     @JoinColumn(name = "user_id")
         private User user;
@@ -19,13 +19,13 @@ public class Commande {
     @JoinColumn(name="pet_id")
         private Pets pet;
 
- */
 
-        @Column(name= "user_id")
+
+      /*  @Column(name= "user_id")
         private Integer user_id ;
 
         @Column(name= "pet_id")
-        private Integer pet_id;
+        private Integer pet_id;*/
 
         @Column(name="status")
         private String status;
@@ -44,7 +44,22 @@ public class Commande {
         this.id = id;
     }
 
-    public Integer getUser_id() {
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Pets getPet() {
+        return pet;
+    }
+
+    public void setPet(Pets pet) {
+        this.pet = pet;
+    }
+/*  public Integer getUser_id() {
         return user_id;
     }
 
@@ -58,7 +73,7 @@ public class Commande {
 
     public void setPet_id(Integer pet_id) {
         this.pet_id = pet_id;
-    }
+    }*/
 
     public String getStatus() {
         return status;
@@ -90,9 +105,11 @@ public class Commande {
     public Commande() {
     }
 
-    public Commande(Integer user, Integer pet, String status, String date, String location) {
-        this.user_id = user;
-        this.pet_id = pet;
+    public Commande(User user, Pets pet, String status, String date, String location) {
+        /*this.user_id = user;
+        this.pet_id = pet;*/
+        this.user = user;
+        this.pet = pet;
         this.status = status;
         this.date = date;
         this.location = location;
