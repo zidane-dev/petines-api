@@ -3,6 +3,7 @@ package com.ensak.petines.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -14,7 +15,7 @@ public class Annonce {
     @Column(name="idAnnonce")
     private Integer idAnnonce;
 
-    @Column(name="Titre")
+    @Column(name="titre")
     private String titreAnnonce;
 
     @Column(name="categorie")
