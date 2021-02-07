@@ -9,10 +9,7 @@ import com.ensak.petines.repositories.UserRepository;
 import com.ensak.petines.services.CommandeService;
 import com.ensak.petines.services.PettyService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -44,6 +41,11 @@ public class CommandeController {
     public List<Commande> getCommandesByUser(@PathVariable String username) {
         User user = userRepository.findByUsername(username);
         return commandeRepository.findCommandesByUser(user);
+    }
+
+    @RequestMapping(method= RequestMethod.POST, value="/livraison")
+    public void addCommande(@RequestBody Commande commande) {
+        commandeRepository.save(commande);
     }
 
 }
