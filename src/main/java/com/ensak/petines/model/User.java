@@ -41,6 +41,10 @@ public class User {
     @OneToMany(mappedBy="user")
     private Set<Review> reviews;
 
+    @JsonIgnore
+    @OneToMany(mappedBy="user")
+    private Set<Pets> pets;
+
 
     public Set<Review> getReviews() {
         return reviews;

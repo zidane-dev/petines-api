@@ -1,8 +1,10 @@
 package com.ensak.petines.controller;
 
 import com.ensak.petines.model.Pets;
+import com.ensak.petines.model.User;
 import com.ensak.petines.repositories.PettyRepository;
 import com.ensak.petines.services.PettyService;
+import com.ensak.petines.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -14,6 +16,9 @@ public class PettyController {
 
     @Autowired
     PettyService pettyService;
+
+    @Autowired
+    UserService userService;
 
     @RequestMapping(method= RequestMethod.GET, value="/petties")
     public List<Pets> getAllPets()    {
@@ -35,6 +40,23 @@ public class PettyController {
     public void deletePetty(@PathVariable int Id) {
         pettyService.deletePetty(Id);
     }
+
+    @PostMapping("/petties/updateLove/{Id}")
+    public Pets updateLovePetty(@PathVariable int Id, @RequestBody boolean love ) {
+        Pets pet1  = pettyRepository.findById(Id);
+        pet1.setLove(love);
+        pettyRepository.save(pet1);
+        return pet1;
+    }
+
+    @RequestMapping(method= RequestMethod.GET, value="/petties/{username}")
+    public List<Pets> getPetsByUser(@PathVariable String username)
+    {
+        User u = userService.getUserByUsername(username);
+        return pettyService.getPetsByUser(u);
+    }
+
+
 
     /*
     @RequestMapping("/pets/{productId}")
