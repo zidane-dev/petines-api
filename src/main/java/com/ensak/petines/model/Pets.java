@@ -1,9 +1,6 @@
 package com.ensak.petines.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Table(name="petty")
@@ -13,6 +10,7 @@ public class Pets {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private Integer id;
+
     @Column(name="name")
     private String name;
     @Column(name="species")
@@ -26,14 +24,17 @@ public class Pets {
     @Column(name="picture")
     private String picture;
     @Column(name="love")
-    private Boolean love;
+    private String love;
+    @Column(name="description")
+    private String description;
+    @Column(name="lat")
+    private String lat;
+    @Column(name="lon")
+    private String lon;
+    @ManyToOne
+    @JoinColumn(name="uid")
+    private User user;
 
-    //    @ManyToMany(mappedBy = "pets")
-//    private Set<Favourite> favourites;
-
-    public int getId() {
-        return id;
-    }
 
     public void setId(int id) {
         this.id = id;
@@ -83,16 +84,54 @@ public class Pets {
         return picture;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public void setPicture(String picture) {
         this.picture = picture;
     }
 
-    public Boolean getLove() {
+    public String getLove() {
         return love;
     }
 
-    public void setLove(Boolean love) {
+    public void setLove(String love) {
         this.love = love;
     }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getLat() {
+        return lat;
+    }
+
+    public void setLat(String lat) {
+        this.lat = lat;
+    }
+
+    public String getLon() {
+        return lon;
+    }
+
+    public void setLon(String lon) {
+        this.lon = lon;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+
 }
 

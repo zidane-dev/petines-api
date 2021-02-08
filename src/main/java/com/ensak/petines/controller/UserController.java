@@ -22,6 +22,11 @@ public class UserController {
         return userService.getAllUsers();
     }
 
+    @RequestMapping(method= RequestMethod.POST, value="/login")
+    public void addUser(@RequestBody User user) {
+        userRepo.save(user);
+    }
+
 
     @RequestMapping("/login/{username}")
     public User getUsername(@PathVariable String username)
@@ -30,10 +35,7 @@ public class UserController {
     }
 
 
-    @RequestMapping(method= RequestMethod.POST, value="/login")
-    public void addUser(@RequestBody User user) {
-        userRepo.save(user);
-    }
+
 
     @PutMapping("/users/{username}")
     public void updateUser(@PathVariable String username, @RequestBody User user ) {

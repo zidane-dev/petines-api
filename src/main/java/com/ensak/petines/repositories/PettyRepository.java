@@ -1,17 +1,18 @@
 package com.ensak.petines.repositories;
-
-//import com.ensak.petines.model.Pet;
 import com.ensak.petines.model.Pets;
-import org.springframework.data.repository.PagingAndSortingRepository;
+import com.ensak.petines.model.User;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-public interface PettyRepository extends PagingAndSortingRepository<Pets, Long> {
+@Repository
+public interface PettyRepository extends CrudRepository<Pets, Integer> {
 
     List<Pets> findAll();
 
-    Pets findById(Integer id);
+    Pets findById(int id);
 
-    //Pets findByStatus(String status);
+    List<Pets> findByUser(User u);
 
 }
