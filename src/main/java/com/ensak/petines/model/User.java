@@ -3,6 +3,7 @@ package com.ensak.petines.model;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -29,30 +30,19 @@ public class User {
     private String status;
     @Column(name="profileimg")
     private String profileimg;
-    @JsonIgnore
-    @OneToMany(mappedBy="user")
-    private Set<Order> orders;
-
-    @JsonIgnore
-    @OneToMany(mappedBy="user")
-    private Set<OrderItem> orderItems;
-
-    @JsonIgnore
-    @OneToMany(mappedBy="user")
-    private Set<Review> reviews;
 
     @JsonIgnore
     @OneToMany(mappedBy="user")
     private Set<Pets> pets;
 
+    @JsonIgnore
+    @OneToMany(mappedBy="user")
+    private Set<Order> orders;
 
-    public Set<Review> getReviews() {
-        return reviews;
-    }
 
-    public void setReviews(Set<Review> reviews) {
-        this.reviews = reviews;
-    }
+    @JsonIgnore
+    @OneToMany(mappedBy="user")
+    private Set<Review> reviews;
 
     public User() {
     }
@@ -88,14 +78,6 @@ public class User {
 
     public void setStatus(String status) {
         this.status = status;
-    }
-
-    public Set<OrderItem> getOrderItems() {
-        return orderItems;
-    }
-
-    public void setOrderItems(Set<OrderItem> orderItems) {
-        this.orderItems = orderItems;
     }
 
     public Integer getId() {
@@ -153,5 +135,23 @@ public class User {
 
     public void setContactNumber(String contactNumber) {
         this.contactNumber = contactNumber;
+    }
+
+    public Set<Pets> getPets() {
+        return pets;
+    }
+/*
+    public void setPets(Set<Pets> pets) {
+        this.pets = pets;
+    }
+
+ */
+
+    public Set<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(Set<Review> reviews) {
+        this.reviews = reviews;
     }
 }

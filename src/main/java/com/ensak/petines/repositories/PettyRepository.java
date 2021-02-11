@@ -4,12 +4,13 @@ import com.ensak.petines.model.User;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
+import java.util.Optional;
 
-public interface PettyRepository extends CrudRepository<Pets, String> {
+public interface PettyRepository extends CrudRepository<Pets, Integer> {
 
     List<Pets> findAll();
 
-    Pets findById(int id);
+    Optional<Pets> findById(int id);
 
     List<Pets> findByUser(User u);
 

@@ -25,26 +25,38 @@ public class Order {
     @JoinColumn(name="uid")
     private User user;
 
-    @OneToMany(mappedBy="order",cascade = {CascadeType.PERSIST  })
-    private Set<OrderItem> orderItems;
+    //@OneToMany(mappedBy="order",cascade = {CascadeType.PERSIST  })
+    //private Set<OrderItem> orderItems;
 
 
     public Order() {
     }
 
+    public Order(String order_date, String status, String comment, User user) {
+        this.order_date = order_date;
+        this.status = status;
+        this.comment = comment;
+        this.user = user;
+        //this.orderItems = orderItems;
+    }
+/*
     public Order(String order_date, String status, String comment, User user, Set<OrderItem> orderItems) {
         this.order_date = order_date;
         this.status = status;
         this.comment = comment;
         this.user = user;
-        this.orderItems = orderItems;
+        //this.orderItems = orderItems;
     }
 
+ */
 
 
+/*
     public Order(Set<OrderItem> orderItems) {
         this.orderItems = orderItems;
     }
+
+ */
 
     public Integer getId() {
         return id;
@@ -85,7 +97,7 @@ public class Order {
     public void setUser(User user) {
         this.user = user;
     }
-
+/*
     public Set<OrderItem> getOrderItems() {
         return orderItems;
     }
@@ -93,5 +105,7 @@ public class Order {
     public void setOrderItems(Set<OrderItem> orderItems) {
         this.orderItems = orderItems;
     }
+
+ */
 }
 

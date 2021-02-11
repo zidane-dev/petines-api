@@ -24,9 +24,14 @@ public class Pets {
     @Column(name="picture")
     private String picture;
     @Column(name="love")
-    private Boolean love;
+    private String love;
     @Column(name="description")
     private String description;
+
+    @Column(name="lat")
+    private String lat;
+    @Column(name="lon")
+    private String lon;
 
     @ManyToOne
     @JoinColumn(name="uid")
@@ -90,12 +95,22 @@ public class Pets {
     public void setPicture(String picture) {
         this.picture = picture;
     }
-
+/*
     public Boolean getLove() {
         return love;
     }
 
     public void setLove(Boolean love) {
+        this.love = love;
+    }
+
+ */
+
+    public String getLove() {
+        return love;
+    }
+
+    public void setLove(String love) {
         this.love = love;
     }
 

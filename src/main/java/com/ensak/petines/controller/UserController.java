@@ -26,6 +26,7 @@ public class UserController {
     @RequestMapping("/login/{username}")
     public User getUsername(@PathVariable String username)
     {
+
         return userService.getUserByUsername(username);
     }
 

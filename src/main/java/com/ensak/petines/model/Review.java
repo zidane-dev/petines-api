@@ -19,7 +19,7 @@ public class Review {
 
     @ManyToOne
     @JoinColumn(name ="pet_id")
-    Pet pet_id;
+    Pets pet_id;
 
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -49,11 +49,11 @@ public class Review {
         this.date = date;
     }
 
-    public Pet getPet_id() {
+    public Pets getPet_id() {
         return pet_id;
     }
 
-    public void setPet_id(Pet pet_id) {
+    public void setPet_id(Pets pet_id) {
         this.pet_id = pet_id;
     }
 
