@@ -1,6 +1,5 @@
 package com.ensak.petines.services;
 
-import com.ensak.petines.model.OrderItem;
 import com.ensak.petines.model.Pets;
 import com.ensak.petines.model.User;
 import com.ensak.petines.repositories.PettyRepository;
