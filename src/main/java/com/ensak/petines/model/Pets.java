@@ -1,7 +1,10 @@
 package com.ensak.petines.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name="petty")
@@ -36,6 +39,10 @@ public class Pets {
     @ManyToOne
     @JoinColumn(name="uid")
     private User user;
+
+    @JsonIgnore
+    @OneToMany(mappedBy="pets")
+    private Set<Favourite> favourites;
 
     //    @ManyToMany(mappedBy = "pets")
 //    private Set<Favourite> favourites;
@@ -128,6 +135,14 @@ public class Pets {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Set<Favourite> getFavourites() {
+        return favourites;
+    }
+
+    public void setFavourites(Set<Favourite> favourites) {
+        this.favourites = favourites;
     }
 }
 

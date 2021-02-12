@@ -39,10 +39,13 @@ public class User {
     @OneToMany(mappedBy="user")
     private Set<Order> orders;
 
-
     @JsonIgnore
     @OneToMany(mappedBy="user")
     private Set<Review> reviews;
+
+    @JsonIgnore
+    @OneToMany(mappedBy="user")
+    private Set<Favourite> favourites;
 
     public User() {
     }
@@ -153,5 +156,13 @@ public class User {
 
     public void setReviews(Set<Review> reviews) {
         this.reviews = reviews;
+    }
+
+    public Set<Favourite> getFavourites() {
+        return favourites;
+    }
+
+    public void setFavourites(Set<Favourite> favourites) {
+        this.favourites = favourites;
     }
 }

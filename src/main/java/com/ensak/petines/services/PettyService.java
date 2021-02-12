@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PettyService {
@@ -84,5 +85,10 @@ public class PettyService {
         pet1.setUser(u);
         pettyRepository.save(pet1);
         return pet1;
+    }
+
+    public List<Object> getAllPetsForConnectedUser(User u1) {
+
+        return pettyRepository.getAllPetsForConnectedUser(u1).orElse(null);
     }
 }

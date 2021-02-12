@@ -69,4 +69,13 @@ public class PettyController {
         return pettyRepository.findById(Id).orElse(null);
     }
 
+    @RequestMapping(method= RequestMethod.GET, value="/petties/connected/{username}")
+    public List<Object> getAllPetsForConnectedUser(@PathVariable String username){
+        User u1 = userService.getUserByUsername(username);
+        return pettyService.getAllPetsForConnectedUser(u1);
+    }
+
+
+
+
 }
