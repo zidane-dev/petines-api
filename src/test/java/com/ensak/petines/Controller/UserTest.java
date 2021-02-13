@@ -66,8 +66,8 @@ public class UserTest {
 
     @Test
     public void createUserTest() throws Exception{
-        User newUser = new User("kziber","passkziber","kziber@gmail.com","oumaima","betana sale","0682640137");
-        User savedUser = new User("kziber","passkziber","kziber@gmail.com","oumaima","betana sale","0682640137");
+        User newUser = new User("KZIBER","passkziber","kziber@gmail.com","oumaima","betana sale","0682640137");
+        User savedUser = new User("KZIBER","passkziber","kziber@gmail.com","oumaima","betana sale","0682640137");
 
         Mockito.when(userRepository.save(newUser)).thenReturn(savedUser);
         String url = "/login";
