@@ -79,15 +79,4 @@ public class UserTest {
 
     }
 
-    @Test
-    public void updateUserTest() throws Exception {
-        String username = "kziber";
-        User user = new User("KZIBER","password","kziber-oumaima@gmail.com","oumaima","betana sale","0682640137");
-
-        Mockito.doNothing().when(userController).updateUser(username,user);
-        String url = "/users/"+ username;
-        mockMvc.perform(get(url)).andExpect(status().isOk());
-        Mockito.verify(userController).updateUser(username,user);
-
-    }
 }
