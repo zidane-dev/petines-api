@@ -1,8 +1,10 @@
 package com.ensak.petines.controller;
 
 import com.ensak.petines.model.Pets;
+import com.ensak.petines.model.User;
 import com.ensak.petines.repositories.PettyRepository;
 import com.ensak.petines.services.PettyService;
+import com.ensak.petines.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -15,15 +17,19 @@ public class PettyController {
     @Autowired
     PettyService pettyService;
 
+    @Autowired
+    UserService userService;
+
     @RequestMapping(method= RequestMethod.GET, value="/petties")
     public List<Pets> getAllPets()    {
         return pettyRepository.findAll();
     }
 
-    @RequestMapping(method= RequestMethod.POST, value="/petties")
-    @ResponseBody
-    public void addPetty(@RequestBody Pets pets) {
-        pettyRepository.save(pets);
+    @RequestMapping(method= RequestMethod.POST, value="/petties/add/{username}")
+    public Pets addPetty(@PathVariable String username, @RequestBody Pets pets) {
+        User u = userService.getUserByUsername(username);
+        return pettyService.addPet(pets, u);
+
     }
 
     @PostMapping("/petties/{Id}")
@@ -36,19 +42,40 @@ public class PettyController {
         pettyService.deletePetty(Id);
     }
 
-    /*
-    @RequestMapping("/pets/{productId}")
-    public Pets getProduct(@PathVariable Integer productId){
-        return pettyRepository.findById(productId);
+    @PostMapping("/petties/updateLove/{Id}")
+    public Pets updateLovePetty(@PathVariable int Id, @RequestBody boolean love ) {
+        Pets pet1;
+        pet1 = pettyRepository.findById(Id).orElse(null);
+        if (love){
+            pet1.setLove("true");
+        }
+        else if (!love){
+            pet1.setLove("false");
+        }
+        //pet1.setLove(love);
+        pettyRepository.save(pet1);
+        return pet1;
     }
 
- */
-
-/*
-    @PutMapping("/products")
-    public void updateProducts(@RequestBody OrderItemWrapper orderItemWrapper ) {
-        pettyService.updatePets(orderItemWrapper);
+    @RequestMapping(method= RequestMethod.GET, value="/petties/{username}")
+    public List<Pets> getPetsByUser(@PathVariable String username)
+    {
+        User u = userService.getUserByUsername(username);
+        return pettyService.getPetsByUser(u);
     }
- */
+
+    @RequestMapping(method= RequestMethod.GET, value="/petties/petty/{Id}")
+    public Pets getPettyById(@PathVariable int Id) {
+        return pettyRepository.findById(Id).orElse(null);
+    }
+
+    @RequestMapping(method= RequestMethod.GET, value="/petties/connected/{username}")
+    public List<Object> getAllPetsForConnectedUser(@PathVariable String username){
+        User u1 = userService.getUserByUsername(username);
+        return pettyService.getAllPetsForConnectedUser(u1);
+    }
+
+
+
 
 }

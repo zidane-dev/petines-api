@@ -1,21 +1,17 @@
 package com.ensak.petines.services;
 
-import com.ensak.petines.model.OrderItem;
 import com.ensak.petines.model.Pets;
+import com.ensak.petines.model.User;
 import com.ensak.petines.repositories.PettyRepository;
 import com.ensak.petines.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PettyService {
-/*
-    @Autowired
-    OrderRepository orderRepository;
 
-    @Autowired
-    OrderItemRepository orderItemRepository;
- */
     @Autowired
     PettyRepository pettyRepository;
 
@@ -25,7 +21,7 @@ public class PettyService {
 
     public void updatePetty(int Id, Pets petty ) {
 
-        Pets mPetty = pettyRepository.findById(Id);
+        Pets mPetty = pettyRepository.findById(Id).orElse(null);
 
         mPetty.setName(petty.getName());
         mPetty.setSpecies(petty.getSpecies());
@@ -38,40 +34,60 @@ public class PettyService {
         pettyRepository.save(mPetty);
     }
 
-/*
-    public void updatePets( OrderItemWrapper orderItemWrapper ) {
-        Pets petty;
-        for (OrderItem orderItem : orderItemWrapper.getOrderItemList()) {
-
-            product = productRepository.findById(orderItem.getProduct().getPid());
-
-            int oldQuantity = product.getQuantity();
-            int newQuantity = orderItem.getQuantity();
-            int updatedQuantity = oldQuantity - newQuantity;
-
-            product.setPrice(orderItem.getProduct().getPrice());
-            product.setProdImage(orderItem.getProduct().getProdImage());
-            product.setProdStock(orderItem.getProduct().getProdStock());
-            product.setProductName(orderItem.getProduct().getProductName());
-            product.setStatus(orderItem.getProduct().getStatus());
-            product.setProd_desc(orderItem.getProduct().getProd_desc());
-            String sUpdatedQuantity = String.valueOf(updatedQuantity);
-
-            product.setQuantity(updatedQuantity);
-
-            productRepository.save(product);
-
-        }
-
-    }
-
- */
-
     public void deletePetty(int Id) {
 
-        Pets mPetty = pettyRepository.findById(Id);
+        Pets mPetty = pettyRepository.findById(Id).orElse(null);
         /*
         code delete pet from database
          */
+    }
+
+    public List<Pets> getPetsByUser(User u) {
+        return pettyRepository.findByUser(u);
+    }
+
+    public Pets getPettyById(int id) {
+        return pettyRepository.findById(id).orElse(null);
+    }
+
+    public Pets addPet(Pets pets, User u) {
+        /*
+        Pets pet1 = new Pets();
+        //pet1.setId(99);
+        pet1.setName("pets.getName()");
+        //pet1.setLove(pets.getLove());
+        pet1.setBirth("2020-01-01");
+        pet1.setBreed("pets.getBreed()");
+        pet1.setDescription("pets.getDescription()");
+        pet1.setGender(pets.getGender());
+        pet1.setSpecies(pets.getSpecies());
+        User u1 = userRepository.findById(1).orElse(null);
+        pet1.setUser(u1);
+        pettyRepository.save(pet1);
+        return pet1;
+
+         */
+
+        Pets pet1 = new Pets();
+        pet1.setId(99);
+        pet1.setName(pets.getName());
+        //pet1.setLove(pets.getLove());
+        pet1.setBirth("2020-01-01");
+        pet1.setBreed(pets.getBreed());
+        pet1.setDescription(pets.getDescription());
+        pet1.setGender(pets.getGender());
+        pet1.setSpecies(pets.getSpecies());
+        pet1.setLove("false");
+        //pet1.setPicture(pets.getPicture());
+        //User u1 = userRepository.findById(1).orElse(null);
+        //User u1 = userRepository.findByUsername(username);
+        pet1.setUser(u);
+        pettyRepository.save(pet1);
+        return pet1;
+    }
+
+    public List<Object> getAllPetsForConnectedUser(User u1) {
+
+        return pettyRepository.getAllPetsForConnectedUser(u1).orElse(null);
     }
 }

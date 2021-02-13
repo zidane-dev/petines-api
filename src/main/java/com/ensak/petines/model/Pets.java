@@ -1,5 +1,6 @@
 package com.ensak.petines.model;
 
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -26,7 +27,22 @@ public class Pets {
     @Column(name="picture")
     private String picture;
     @Column(name="love")
-    private Boolean love;
+    private String love;
+    @Column(name="description")
+    private String description;
+
+    @Column(name="lat")
+    private String lat;
+    @Column(name="lon")
+    private String lon;
+
+    @ManyToOne
+    @JoinColumn(name="uid")
+    private User user;
+
+    @JsonIgnore
+    @OneToMany(mappedBy="pets")
+    private Set<Favourite> favourites;
 
     //    @ManyToMany(mappedBy = "pets")
 //    private Set<Favourite> favourites;
@@ -86,13 +102,47 @@ public class Pets {
     public void setPicture(String picture) {
         this.picture = picture;
     }
-
+/*
     public Boolean getLove() {
         return love;
     }
 
     public void setLove(Boolean love) {
         this.love = love;
+    }
+
+ */
+
+    public String getLove() {
+        return love;
+    }
+
+    public void setLove(String love) {
+        this.love = love;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Set<Favourite> getFavourites() {
+        return favourites;
+    }
+
+    public void setFavourites(Set<Favourite> favourites) {
+        this.favourites = favourites;
     }
 }
 
