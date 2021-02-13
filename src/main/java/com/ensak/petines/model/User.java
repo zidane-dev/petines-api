@@ -41,7 +41,12 @@ public class User {
 
     @JsonIgnore
     @OneToMany(mappedBy="user")
+    private Set<Commande> commandes;
+    /*
+    @JsonIgnore
+    @OneToMany(mappedBy="user")
     private Set<Review> reviews;
+     */
 
     @JsonIgnore
     @OneToMany(mappedBy="user")
@@ -58,6 +63,7 @@ public class User {
         this.residentAddress = residentAddress;
         this.contactNumber = contactNumber;
     }
+
 
     public Set<Order> getOrders() {
         return orders;
@@ -149,7 +155,7 @@ public class User {
     }
 
  */
-
+/*
     public Set<Review> getReviews() {
         return reviews;
     }
@@ -158,11 +164,21 @@ public class User {
         this.reviews = reviews;
     }
 
+ */
+
     public Set<Favourite> getFavourites() {
         return favourites;
     }
 
     public void setFavourites(Set<Favourite> favourites) {
         this.favourites = favourites;
+    }
+
+    public Set<Commande> getCommandes() {
+        return commandes;
+    }
+
+    public void setCommandes(Set<Commande> commandes) {
+        this.commandes = commandes;
     }
 }
