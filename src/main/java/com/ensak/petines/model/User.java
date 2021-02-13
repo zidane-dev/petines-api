@@ -66,6 +66,25 @@ public class User {
         this.contactNumber = contactNumber;
     }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", emailAddress='" + emailAddress + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", residentAddress='" + residentAddress + '\'' +
+                ", contactNumber='" + contactNumber + '\'' +
+                ", status='" + status + '\'' +
+                ", profileimg='" + profileimg + '\'' +
+                ", orders=" + orders +
+                ", orderItems=" + orderItems +
+                ", reviews=" + reviews +
+                ", pets=" + pets +
+                '}';
+    }
+
     public Set<Order> getOrders() {
         return orders;
     }
