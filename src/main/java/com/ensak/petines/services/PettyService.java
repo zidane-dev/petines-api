@@ -90,4 +90,5 @@ public class PettyService {
 
         return pettyRepository.getAllPetsForConnectedUser(u1).orElse(null);
     }
+
 }
