@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Petines Backend_n.iml" filepath="$PROJECT_DIR$/Petines Backend_n.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/petines.iml" filepath="$PROJECT_DIR$/.idea/petines.iml" />
     </modules>
   </component>
 </project>

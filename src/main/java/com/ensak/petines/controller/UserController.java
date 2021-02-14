@@ -16,7 +16,7 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @RequestMapping("/login")
+    @GetMapping("/login")
     public List<User> getAllUsers()
     {
         return userService.getAllUsers();
@@ -32,11 +32,11 @@ public class UserController {
 
 
     @RequestMapping(method= RequestMethod.POST, value="/login")
-    public void addUser(@RequestBody User user) {
+    public void addUser( @RequestBody User user) {
         userRepo.save(user);
     }
 
-    @PutMapping("/users/{username}")
+    @RequestMapping("/users/{username}")
     public void updateUser(@PathVariable String username, @RequestBody User user ) {
 
         User newUser = userRepo.findByUsername(username);
