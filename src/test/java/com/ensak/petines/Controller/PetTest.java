@@ -70,6 +70,22 @@ public class PetTest {
         pet.setLove("false");
         pet.setUser(u);
 
+        Pets savedPet = new Pets();
+        savedPet.setId(3);
+        savedPet.setName("mario");
+        savedPet.setBirth("2020-01-01");
+        savedPet.setBreed(null);
+        savedPet.setDescription("pretty dog");
+        savedPet.setGender(0);
+        savedPet.setSpecies(null);
+        savedPet.setLove("false");
+        savedPet.setUser(u);
+        Mockito.when(pettyRepository.save(pet)).thenReturn(savedPet);
+        String url = "/petties/add/kziber";
+
+        mockMvc.perform(post(url)
+                .contentType("application/json")
+                .content(objectMapper.writeValueAsString(pet))).andExpect(status().isOk());
 
 
 
