@@ -75,7 +75,4 @@ public class PettyController {
         return pettyService.getAllPetsForConnectedUser(u1);
     }
 
-
-
-
 }

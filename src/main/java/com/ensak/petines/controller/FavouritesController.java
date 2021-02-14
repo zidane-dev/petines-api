@@ -1,12 +1,8 @@
 package com.ensak.petines.controller;
 
 import com.ensak.petines.model.Favourite;
-import com.ensak.petines.model.Pets;
 import com.ensak.petines.model.User;
-import com.ensak.petines.repositories.FavouritesRepository;
-import com.ensak.petines.repositories.PettyRepository;
 import com.ensak.petines.services.FavouriteService;
-import com.ensak.petines.services.PettyService;
 import com.ensak.petines.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
