@@ -7,7 +7,7 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name="petty")
+@Table(name="pets")
 public class Pets {
 
     @Id
