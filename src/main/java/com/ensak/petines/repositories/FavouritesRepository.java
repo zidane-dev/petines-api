@@ -18,4 +18,10 @@ public interface FavouritesRepository extends CrudRepository<Favourite, Integer>
     Optional<List<Favourite>> findFavouritesByUser(@Param("user") User user);
 
     Optional<Favourite> findFavouriteByFid(Integer fav_id);
+
+    //@Query("Select p, o from Pets p left outer join Favourite o on p.id = o.pets.id where o.user.id= :#{#user.id}")
+    //Optional<List<Object>> getAllPetsForConnectedUser(User user);
+
+    //@Query("Select p.id, p.name, p.species, p.breed, p.gender, p.birth, p.picture, p.description, p.user.id as uid, p.lat, p.lon, o.user.id as u_id , o.liked from Pets p left outer join Favourite o on p.id = o.pets.id where o.user.id= :#{#user.id}")
+
 }

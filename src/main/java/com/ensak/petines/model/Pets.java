@@ -144,5 +144,21 @@ public class Pets {
     public void setFavourites(Set<Favourite> favourites) {
         this.favourites = favourites;
     }
+
+    public Pets() {
+    }
+
+    public Pets(Integer id, String name, String species, String breed, int gender, String birth, String picture, String love, String description, User user) {
+        this.id = id;
+        this.name = name;
+        this.species = species;
+        this.breed = breed;
+        this.gender = gender;
+        this.birth = birth;
+        this.picture = picture;
+        this.love = love;
+        this.description = description;
+        this.user = user;
+    }
 }
 
