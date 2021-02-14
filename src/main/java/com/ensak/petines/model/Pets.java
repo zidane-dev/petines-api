@@ -102,6 +102,9 @@ public class Pets {
     public void setPicture(String picture) {
         this.picture = picture;
     }
+
+    public Pets() {
+    }
 /*
     public Boolean getLove() {
         return love;
