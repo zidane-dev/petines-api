@@ -41,11 +41,6 @@ public class UserTest {
     @Mock
     private UserRepository userRepository;
 
-    @Mock
-    private UserService userService;
-
-    @Mock
-    private UserController userController;
 
     @Autowired
     private ObjectMapper objectMapper;
