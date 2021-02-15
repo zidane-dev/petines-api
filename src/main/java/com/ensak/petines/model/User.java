@@ -37,10 +37,6 @@ public class User {
 
     @JsonIgnore
     @OneToMany(mappedBy="user")
-    private Set<Order> orders;
-
-    @JsonIgnore
-    @OneToMany(mappedBy="user")
     private Set<Commande> commandes;
     /*
     @JsonIgnore
@@ -64,10 +60,12 @@ public class User {
         this.contactNumber = contactNumber;
     }
 
-
+/*
     public Set<Order> getOrders() {
         return orders;
     }
+
+ */
 
     public String getProfileimg() {
         return profileimg;
@@ -76,10 +74,12 @@ public class User {
     public void setProfileimg(String profileimg) {
         this.profileimg = profileimg;
     }
-
+/*
     public void setOrders(Set<Order> orders) {
         this.orders = orders;
     }
+
+ */
 
     public String getStatus() {
         return status;

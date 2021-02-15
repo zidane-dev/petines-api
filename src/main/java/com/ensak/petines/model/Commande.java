@@ -13,11 +13,11 @@ public class Commande {
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    private User user; //the whole object
+    private User user;
 
     @OneToOne
     @JoinColumn(name="pet_id")
-    private Pets pet; //^same here
+    private Pets pet;
 
     @Column(name="status")
     private String status;
