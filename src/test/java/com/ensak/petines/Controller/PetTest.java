@@ -44,12 +44,6 @@ public class PetTest {
     private PettyRepository pettyRepository;
 
     @Mock
-    private PettyService pettyService;
-
-    @Mock
-    private PettyController pettyController;
-
-    @Mock
     private UserController userController;
 
     @Autowired
