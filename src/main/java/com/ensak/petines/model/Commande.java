@@ -106,8 +106,7 @@ public class Commande {
     }
 
     public Commande(User user, Pets pet, String status, String date, String location) {
-        /*this.user_id = user;
-        this.pet_id = pet;*/
+
         this.user = user;
         this.pet = pet;
         this.status = status;
